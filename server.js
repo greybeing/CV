@@ -3,6 +3,7 @@ const app = express();
 const nodemailer = require('nodemailer');
 const dotenv = require("dotenv");
 const path = require('path');
+const mime = require('mime-types');
 dotenv.config();
 const cors = require('cors');
 
@@ -62,8 +63,8 @@ transporter.sendMail(mailOptions, (error, info) => {
 });
 
 //App homepage
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Public', 'index.html'))
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, './Public', 'index.html'))
+// });
 
 app.listen(process.env.PORT, () => console.log(`server is running on Port ${process.env.PORT}`))
