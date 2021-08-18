@@ -61,8 +61,8 @@ transporter.sendMail(mailOptions, (error, info) => {
 });
 
 //App homepage
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/Public/index.html")
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname)
+// });
 
 app.listen(process.env.PORT, () => console.log(`server is running on Port ${process.env.PORT}`))
