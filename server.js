@@ -27,7 +27,7 @@ app.use(express.urlencoded({
 
 //middleware
 app.use(express.json())
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'));
 
 //send email
 app.post('/', (req, res) => {
@@ -62,9 +62,11 @@ transporter.sendMail(mailOptions, (error, info) => {
  })
 });
 
+
 //App homepage
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, './Public', 'index.html'))
-// });
+app.get('/', (req, res) => {
+   
+    res.sendFile('Public/index.html' , { root : __dirname});
+});
 
 app.listen(process.env.PORT, () => console.log(`server is running on Port ${process.env.PORT}`))
