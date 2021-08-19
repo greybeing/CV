@@ -62,10 +62,10 @@ transporter.sendMail(mailOptions, (error, info) => {
  })
 });
 
-// setup static server
-const file = new(static.Server)('./public');
+// setup static file server
+const fileServer = new(static.Server)('./public');
 require('http').createServer(function (request, response) {
     request.addListener('end', function () {
-        file.serve(request, response);
+        fileServer.serve(request, response);
     }).resume();
 }).listen(process.env.PORT, () => console.log(`server is running on Port ${process.env.PORT}`))
